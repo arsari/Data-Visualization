@@ -10,7 +10,7 @@ import os
 import platform
 
 
-# determine os system to clear screen
+# function definition to determine os system to clear screen
 def clear_screen():
     my_os = platform.system()
     if my_os == 'Windows':
@@ -19,29 +19,42 @@ def clear_screen():
         os.system('clear')  # on linux / os x
 
 
-# user input for table header
-clear_screen()
-data_title = input('Enter table header title: ')
-print('You entered: %s\n' % (data_title))
+# user input for table and columns header
+clear_screen() # call clear screen function
+while True: # use of while loops for handling input errors
+    data_title = input('Enter table header title: ')
+    if data_title != '':
+        print('You entered: %s\n' % (data_title))
+        break
+    else:
+        print('ERROR: Input can not be blank.\n')
+while True:
+    column_one_header = input('Enter column 1 header title: ')
+    if column_one_header != '':
+        print('You entered: %s\n' % (column_one_header))
+        break
+    else:
+        print('ERROR: Input can not be blank.\n')
+while True:
+    column_two_header = input('Enter column 2 header title: ')
+    if column_two_header != '':
+        print('You entered: %s\n' % (column_two_header))
+        break
+    else:
+        print('ERROR: Input can not be blank.\n')
 
-column_one_header = input('Enter column 1 header title: ')
-print('You entered: %s\n' % (column_one_header))
 
-column_two_header = input('Enter column 2 header title: ')
-print('You entered: %s\n' % (column_two_header))
-
-
-# variables declaration and user data input
-clear_screen()
+# variables declaration for user row data input
 data_str = []
 data_int = []
 separator = ','
 user_data = ''
 
-while user_data != 'x':
+#while loop for error handling of user row data input
+while True:
     user_data = input('Enter a data name and integer value separated by comma (data, value) (x to stop input): ')
 
-    if user_data == '-1':
+    if user_data == 'x':
         break
     elif separator not in user_data:
         print('Error: comma not included.\n')
@@ -66,7 +79,6 @@ print('Table:\n')
 print(data_title.center(41, ' '))
 print('%-20s|%20s' % (column_one_header, column_two_header))
 print('-' * 20 + '+' + '-' * 20)
-
     # print table data rows
 i = 0
 while i < len(data_str):
@@ -80,3 +92,4 @@ i = 0
 while i < len(data_str):
     print('%20s' % (data_str[i]), '*' * data_int[i])
     i += 1
+print()
