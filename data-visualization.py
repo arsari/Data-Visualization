@@ -20,8 +20,8 @@ def clear_screen():
 
 
 # user input for table and columns header
-clear_screen() # call clear screen function
-while True: # use of while loops for handling input errors
+clear_screen()  # call clear screen function
+while True:  # use of while loops for handling input errors
     data_title = input('Enter table header title: ')
     if data_title != '':
         print('You entered: %s\n' % (data_title))
@@ -50,7 +50,7 @@ data_int = []
 separator = ','
 user_data = ''
 
-#while loop for error handling of user row data input
+# while loop for error handling of user row data input
 while True:
     user_data = input('Enter a data name and integer value separated by comma (data, value) (x to stop input): ')
 
@@ -74,12 +74,12 @@ while True:
 
 # output formatted table
 clear_screen()
-    # print table header
+# print table header
 print('Table:\n')
 print(data_title.center(41, ' '))
 print('%-20s|%20s' % (column_one_header, column_two_header))
 print('-' * 20 + '+' + '-' * 20)
-    # print table data rows
+# print table data rows
 i = 0
 while i < len(data_str):
     print('%-20s|%20d' % (data_str[i], data_int[i]))
